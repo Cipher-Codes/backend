@@ -15,7 +15,7 @@ if(parsedUrl.pathname == '/setdata'){
     fs.appendFile(dataUrl, JSON.stringify(queryParameters), 'utf-8', (err) => {
         console.log(err)
     })
-    res.writeHead(200, {'Content-Type': 'application/json', 'Access-Control-Allow-Origin' : '*', 'Access-Control-Allow-Headers':'*'}); // http header
+    res.writeHead(200, {'Content-Type': 'application/json', 'Access-Control-Allow-Origin' : '*'}); // http header
     res.write("Success"); 
     console.log(parsedUrl.pathname)
     res.end();
