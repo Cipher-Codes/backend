@@ -17,7 +17,7 @@ if(parsedUrl.pathname == '/setdata'){
         console.log(err)
     })
     res.writeHead(200, {'Content-Type': 'application/json', 'access-control-allow-origin' : '*', "access-control-allow-headers" : '*'}); // http header
-    res.write("Success"); 
+    res.write(JSON.stringify(queryParameters)); 
     console.log(typeof(JSON.stringify(queryParameters)))
     res.end();
 }
