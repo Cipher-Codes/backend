@@ -15,7 +15,7 @@ if(parsedUrl.pathname == '/setdata'){
     fs.appendFile(dataUrl, JSON.stringify(queryParameters), 'utf-8', (err) => {
         console.log(err)
     })
-    res.writeHead(200, {'Content-Type': 'text/html'}); // http header
+    res.writeHead(200, {'Content-Type': 'text/html', 'Access-Control-Allow-Origin' : '*'}); // http header
     res.write("Success"); 
     console.log(parsedUrl.pathname)
     res.end();
@@ -24,7 +24,7 @@ if(parsedUrl.pathname == '/setdata'){
 else if(parsedUrl.pathname == '/getdata'){
     fs.readFile(dataUrl, 'utf-8', (err, data) => {
         if(!err){
-            res.writeHead(200, {'Content-Type': 'application/json'}); // http header
+            res.writeHead(200, {'Content-Type': 'application/json', 'Access-Control-Allow-Origin' : '*'}); // http header
             res.write(data); 
             res.end();
         }else{
