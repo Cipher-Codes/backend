@@ -12,13 +12,11 @@ const parsedUrl = url.parse(req.url, true);
 const queryParameters = parsedUrl.query;
  
 if(parsedUrl.pathname == '/setdata'){
-
     fs.appendFile(dataUrl, JSON.stringify(queryParameters), 'utf-8', (err) => {
         console.log(err)
     })
     res.writeHead(200, {'Content-Type': 'application/json', 'access-control-allow-origin' : '*', "access-control-allow-headers" : '*'}); // http header
     res.write(JSON.stringify(queryParameters)); 
-    console.log(typeof(JSON.stringify(queryParameters)))
     res.end();
 }
 
