@@ -27,6 +27,9 @@ else if(parsedUrl.pathname == '/getdata'){
             res.write(data); 
             res.end();
         }else{
+            res.writeHead(400, {'Content-Type': 'text/html','access-control-allow-origin' : '*', "access-control-allow-headers" : '*'}); // http header
+            res.write('error'); 
+            res.end();
             console.log(err);
         }
     })
