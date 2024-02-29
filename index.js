@@ -80,10 +80,10 @@ else if(parsedUrl.pathname == "/adddata" && req.method == "POST"){
         if(err){
             console.log("Error",err.message)
         }else{
-            res.writeHead(200,{'Content-Type' : 'text/plain' , 'Access-Control-Allow-Origin': 'http://localhost:4200',
+            res.writeHead(200,{'Content-Type' : 'application/json' , 'Access-Control-Allow-Origin': 'http://localhost:4200',
             'Access-Control-Allow-Methods': 'POST', // Adjust as needed
             'Access-Control-Allow-Headers': 'Content-Type, Authorization'})
-            res.end('Inserted')
+            res.end({"message" : "Inserted"})
         }
     });
     
@@ -161,8 +161,6 @@ function createTable(){
         }
     });
 }
-
-
 
 
 
