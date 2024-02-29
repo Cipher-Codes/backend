@@ -32,16 +32,6 @@ const queryParameters = parsedUrl.query;
  
 if(parsedUrl.pathname == '/setdata'){
     
-    const ab = JSON.stringify(queryParameters);
-    const ba = JSON.parse(ab)
-
-    const name = bc.name;
-    const amount = bc.amount;
-    const age = bc.age;
-    const tcid = bc.tcid;
-    const source = bc.source;
-    const destination = bc.destination;
-
     // let array2 = []
     // for (a in queryParameters) {
     //     console.log(a)
@@ -86,20 +76,6 @@ else if(parsedUrl.pathname == "/createtable"){
 }
 
 else if(parsedUrl.pathname == "/adddata" && req.method == "POST"){
-    const ab = JSON.stringify(queryParameters);
-    const bc = JSON.parse(ab)
-
-    const id = bc.id;
-    const name = bc.name;
-    const amount = bc.amount;
-    const age = bc.age;
-    const tcid = bc.tcid;
-    const source = bc.source;
-    const destination = bc.destination;
-    for (let a in queryParameters){
-        console.log("J:",a)
-    }
-    // console.log(bc.name +" "+age)
     db.run('insert into transactions  (name,age,amount,tcid,source,destination) values (?,?,?,?,?,?)', [queryParameters.name,queryParameters.age,queryParameters.amount,queryParameters.tcid,queryParameters.source,queryParameters.destination], (err) => {
         if(err){
             console.log("Error",err.message)
